@@ -1,0 +1,27 @@
+<div class="example-container">
+    <h1>Home</h1>
+    <p>You're logged in with JWT!!</p>
+    <div>
+        Users from secure api end point:
+        <!--
+        <ul>
+            <li *ngFor="let user of users">{{user.firstname}} {{user.lastname}}</li>
+        </ul>
+      -->
+      <div>
+        Username : {{users.firstname}}
+      </div>
+      <div>
+        Email : {{users.email}}
+      </div>
+      <div>
+        Authorities :
+      </div>
+      <ul>
+        <li *ngFor="let authType of users.authorities">
+          {{authType.authority}}
+        </li>
+      </ul>
+    </div>
+    <p><a [routerLink]="['/login']" mat-raised-button>Logout</a></p>
+</div>

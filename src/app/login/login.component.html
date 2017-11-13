@@ -1,0 +1,38 @@
+<div fxLayout="column"
+     fxLayoutGap="5%"
+     fxLayoutAlign="start center"
+     fxFill>
+    <h2>Login</h2>
+    <div class="alert alert-info">
+        Username: admin<br />
+        Password: admin
+    </div>
+
+    <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate
+      class="example-container"
+      fxLayout="column"
+      fxLayoutAlign="start center"
+      fxLayoutGap.xs="10%"
+      >
+        <mat-form-field>
+          <div [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+            <input type="text" [(ngModel)]="model.username" name="username" #username="ngModel" matInput placeholder="username" required/>
+            <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
+          </div>
+        </mat-form-field>
+        <mat-form-field>
+          <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+            <input type="password" [(ngModel)]="model.password" name="password" #password="ngModel" matInput placeholder="password" required/>
+            <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+          </div>
+        </mat-form-field>
+        <div fxLayout="column" fxLayoutAlign="center"
+          fxFill>
+          <button fxFlex="50%" mat-raised-button [disabled]="loading" color="primary">Login</button>
+          <a fxFlex="50%" mat-raised-button color="primary" [routerLink]="['/join']">join</a>
+        </div>
+        <mat-error *ngIf="error">
+          {{error}}
+        </mat-error>
+    </form>
+</div>

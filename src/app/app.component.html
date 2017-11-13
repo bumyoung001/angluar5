@@ -1,0 +1,39 @@
+
+<mat-toolbar color="primary" class="app-toolbar" [style.display]="(loading === 'none') ? 'none':''">
+  <button class="hamburger" mat-button (click)="sideClick()">
+      <mat-icon></mat-icon>클릭
+  </button>
+</mat-toolbar>
+
+
+<mat-sidenav-container role="main">
+  <mat-sidenav mode="side" class="sidenav" opened="{{isFlag}}">
+    <div>
+      <button mat-button>1</button>
+    </div>
+    <div>
+      <button mat-raised-button>2</button>
+    </div>
+    <div>
+      <button mat-fab>3</button>
+    </div>
+    <div>
+      <button mat-icon-button>4</button>
+    </div>
+    <div>
+      <button mat-mini-fab>5</button>
+    </div>
+  </mat-sidenav>
+  <section class="example-container" role="content">
+    <router-outlet></router-outlet>
+  </section>
+
+</mat-sidenav-container>
+<footer>
+    <p>
+      <a class="link" href="http://jasonwatmore.com/post/2016/08/16/angular-2-jwt-authentication-example-tutorial" target="_top">Angular 2 JWT Authentication Example & Tutorial</a>
+    </p>
+    <p>
+      <a class="link" href="http://jasonwatmore.com" target="_top">JasonWatmore.com</a>
+    </p>
+</footer>
